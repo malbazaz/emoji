@@ -12,6 +12,9 @@ class UsersController < ApplicationController
     	if !!session[:user_id]
     		redirect '/gimojis'
     	end
+        if params[:fullname] == ""
+            redirect "/signup"
+        end
     	if params[:username] == ""
     		redirect "/signup"
     	end

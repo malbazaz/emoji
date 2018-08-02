@@ -1,0 +1,21 @@
+<h1>Create a new Gimoji</h1>
+
+<form action="/gimojis" method="POST">
+	<label>Gimoji</label>
+	<br></br>
+	<label for="name">Name</label>
+	<input type="text" id="name" name="gimoji[name]">
+	<br></br>
+	<label for="tag">Tag</label>
+	<input type="text" id="tag" name="gimoji[tag]">
+	<br></br>
+	<label>Select Emotion</label>
+	<% Emotion.all.each do |emotion| %>
+    <input id="emotion_<%= emotion.id %>" type="checkbox" name="gimoji[emotion_ids][]" value="<%= emotion.id %>" >
+    <%=title.name%></input><% end %>
+	<label for="new-emotion">(and/or) Create Emotion</label>
+	<input type="text" id="new-emotion" name="gimoji[new-emotion]">
+	<br></br>
+
+    <input type="submit" value="submit" name="submit">
+  </form>

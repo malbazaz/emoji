@@ -1,0 +1,17 @@
+<h2>Welcome to the <%= @gimoji.name %> gimoji page.</h2>
+<ul> <h4> Profile: </h4>
+	<li> I'm called <%= @gimoji.name %> </li>
+	<li> My tagline is "<%= @gimoji.tag %>" </li>
+	<li> I'm owned by <%= @gimoji.user.username %> </li>
+	<li> Here are my emotions: <% @gimoji.emotions.each do |emotion| %><%= emotion.name %></li><% end %></ul>
+
+
+<h4> To Edit your Gimoji. Click below. </h4>
+<form action="/gimoji/<%= @gimoji.name.slug %>/edit">
+<input type="submit" value="submit" name="Edit Gimoji" id="Edit Gimoji">
+</form>
+<h4> To Delete your Gimoji. Click below. </h4>
+<form method="post" action="/gimojis/<%= @gimoji.name.slug %>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit"name="Delete Gimoji" value="delete" id="Delete Gimoji">
+</form>

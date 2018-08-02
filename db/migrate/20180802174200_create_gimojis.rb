@@ -4,7 +4,7 @@ class CreateGimojis < ActiveRecord::Migration
       t.string :name
       t.string :tag
       t.string :emotion_id
-      t.integer :owner_id
+      t.integer :user_id
     end
   end
 end

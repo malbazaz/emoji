@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :gimojis
+  has_many :emotions, through: :gimojis
   
 
   def slug

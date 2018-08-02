@@ -1,3 +1,5 @@
+ENV["SINATRA_ENV"] ||= "development"
+
 require "bundler/gem_tasks"
 task :default => :spec
 

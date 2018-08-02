@@ -1,0 +1,2 @@
+class GimojisController < ApplicationController
+end 

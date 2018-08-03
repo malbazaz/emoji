@@ -73,7 +73,7 @@ patch '/gimojis/:slug' do
 	if params[:gimoji][:emotion_ids]
 		params[:gimoji][:emotion_ids].each do |emotion_id|
 			@emotion = Emotion.find_by_id(emotion_id)
-			binding.pry	
+			#binding.pry	
 			if !@gimoji.emotions.include?(@emotion)
 				@gimoji.emotions << @emotion 
 				@gimoji.save

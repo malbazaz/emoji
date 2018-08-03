@@ -60,6 +60,8 @@ patch '/gimojis/:slug/gift' do
 	if !!session[:user_id] && @gimoji.user_id == session[:user_id]
 		@gimoji.gift(params[:fullname])
 		redirect to "/gimojis"
+	else 
+		redirect to '/gimojis'
 	end 
 end 
 

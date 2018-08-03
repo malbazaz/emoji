@@ -5,7 +5,10 @@
 	<li> I'm owned by <%= @gimoji.user.username %> </li>
 	<li> Here are my emotions: <% @gimoji.emotions.each do |emotion| %><%= emotion.name %></li><% end %></ul>
 
-<h4> To see all of your Gimojis, <a href="/gimojis">Click Here</a>
+<h4> To see all of your Gimojis. Click below</a>
+<form action="/gimojis" method="get">
+<input type="submit" value="All My Gimojis" name="See Gimojis" id="See Gimojis">
+</form>
 <h4> To Edit your Gimoji. Click below. </h4>
 <form action="/gimojis/<%= @gimoji.slug %>/edit" method="get">
 <input type="submit" value="Edit" name="Edit Gimoji" id="Edit Gimoji">

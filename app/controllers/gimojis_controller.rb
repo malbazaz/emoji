@@ -55,8 +55,8 @@ end
 
 get '/gimojis/:slug/edit' do
 	#binding.pry
-	if !!session[:user_id]
-		@gimoji = Gimoji.find_by_slug(params[:slug])
+	@gimoji = Gimoji.find_by_slug(params[:slug])
+	if !!session[:user_id] && session[:user_id] == @gimoji.user_id
 		erb :'gimojis/edit'
 	else
 		redirect '/login'

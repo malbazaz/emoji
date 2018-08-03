@@ -76,7 +76,7 @@ patch '/gimojis/:slug' do
 			@gimoji.save
 		end 
 	end
-	if params[:new_emotion]
+	if params[:gimoji][:new_emotion]
 		@emotion = Emotion.create(name: params[:gimoji][:new_emotion])
 		@gimoji.emotions << @emotion 
 		@gimoji.save

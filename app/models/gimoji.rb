@@ -14,6 +14,12 @@ has_many :emotions, through: :gimoji_emotions
     end
   end
 
+  def gift(user2)
+  	@user = User.find_by_username(user2)
+  	self.user = @user
+  	self.save
+  end 
+
 #def gift(user_2)
 # if balance>0
 #	self.user_id = user_2

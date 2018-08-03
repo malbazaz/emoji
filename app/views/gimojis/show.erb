@@ -5,17 +5,29 @@
 	<li> I'm owned by <%= @gimoji.user.username %> </li>
 	<li> Here are my emotions: <% @gimoji.emotions.each do |emotion| %> - <%= emotion.name %></li><% end %></ul>
 
-<h4> To see all of your Gimojis. Click below</a>
+<h4> If you own this Gimoji and would like to Gift it. Select the recipient and Click below: </a>
+	 <input list="usernames" name="username">
+  	<datalist id="usernames">
+	<% User.all.each do |user1| %>
+    <option value="<%=user1.fullname%>">
+  </datalist><%end%>
+<form action="/gimojis/<%= @gimoji.slug%>/gift" method="post">
+<input id="hidden" type="hidden" name="_method" value="patch">
+<input type="submit" value="Gift Gimoji" name="Gift Gimoji" id="Gift Gimoji">
+</form>
+
+
+<h4> To see all of your Gimojis. Click below: </a>
 <form action="/gimojis" method="get">
 <input type="submit" value="All my Amazing Gimojis" name="See Gimojis" id="See Gimojis">
 </form>
 
-<h4> To Edit your Gimoji. Click below. </h4>
+<h4> To Edit your Gimoji. Click below: </h4>
 <form action="/gimojis/<%= @gimoji.slug %>/edit" method="get">
 <input type="submit" value="Edit" name="Edit Gimoji" id="Edit Gimoji">
 </form>
 
-<h4> To Delete your Gimoji. Click below. </h4>
+<h4> To Delete your Gimoji. Click below: </h4>
 <form method="post" action="/gimojis/<%= @gimoji.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit"name="Delete Gimoji" value="Delete" id="Delete Gimoji">

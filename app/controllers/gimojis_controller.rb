@@ -29,8 +29,14 @@ class GimojisController < ApplicationController
 			#@gimoji.save
 			if params[:gimoji][:new_emotion]
 				@emotion = Emotion.create(name: params[:gimoji][:new_emotion])
-				@gimoji.emotion_id = @emotion.id 
-				@gimoji.save 
+				@gimoji.emotions << @emotion
+				@gimoji.save
+			end
+			if  params[:gimoji][:emotion_ids]
+				params[:gimoji][:emotion_ids].each do |emotion_id|
+					@gimoji.emotions << Emotion.find_by_id(emotion_id)
+					@gimoji.save 
+				end
 			end
 			redirect to "/gimojis/#{@gimoji.slug}"
  		end
@@ -58,12 +64,23 @@ get '/gimojis/:slug/edit' do
 end
 
 patch '/gimojis/:slug' do
-	#binding.pry
 	if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
 		redirect "/gimojis/#{params[:slug]}/edit"
 	end
 	@gimoji = Gimoji.find_by_slug(params[:slug])
 	@gimoji.name = params[:gimoji][:name]
+	@gimoji.save
+	if params[:gimoji][:emotion_ids]
+		params[:gimoji][:emotion_ids].each do |emotion_id|
+			@gimoji.emotions << Emotion.find_by_id(emotion_id)
+			@gimoji.save
+		end 
+	end
+	if params[:new_emotion]
+		@emotion = Emotion.create(name: params[:gimoji][:new_emotion])
+		@gimoji.emotions << @emotion 
+		@gimoji.save
+	end
 	@gimoji.save
 	erb :'gimojis/show'
 end

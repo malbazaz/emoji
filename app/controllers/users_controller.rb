@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 	end
 
     post "/signup" do
-   
+            binding.pry
     	if !!session[:user_id]
     		redirect '/gimojis'
     	end

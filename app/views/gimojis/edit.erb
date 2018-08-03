@@ -13,7 +13,7 @@
 	<label>Select Emotion</label>
 	<% Emotion.all.each do |emotion| %>
     <input id="emotion_<%= emotion.id %>" type="checkbox" name="gimoji[emotion_ids][]" value="<%= emotion.id %>" >
-    <%=title.name%></input><% end %>
+    <%=emotion.name%></input><% end %>
 	<label for="new-emotion">(and/or) Create Emotion</label>
 	<input type="text" id="new-emotion" name="gimoji[new-emotion]">
 	<br></br>

@@ -45,7 +45,7 @@ get '/gimojis/:slug' do
 end
 
 get '/gimojis/:slug/edit' do
-	binding.pry
+	#binding.pry
 	if !!session[:user_id]
 		@gimoji = Gimoji.find_by_slug(params[:slug])
 		erb :'gimojis/edit'

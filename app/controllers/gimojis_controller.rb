@@ -59,7 +59,7 @@ patch '/gimojis/:slug/gift' do
 	#binding.pry
 	if !!session[:user_id] && @gimoji.user_id == session[:user_id]
 		@gimoji.gift(params[:fullname])
-		redirect to "/gimojis/#{@gimoji.slug}"
+		redirect to "/gimojis"
 	end 
 end 
 

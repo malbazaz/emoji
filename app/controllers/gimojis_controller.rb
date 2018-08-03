@@ -55,6 +55,7 @@ get '/gimojis/:slug/edit' do
 end
 
 patch '/gimojis/:slug' do
+	#binding.pry
 	if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
 		redirect "/gimojis/#{params[:slug]}/edit"
 	end

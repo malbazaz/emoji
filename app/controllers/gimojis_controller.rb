@@ -72,8 +72,12 @@ patch '/gimojis/:slug' do
 	@gimoji.save
 	if params[:gimoji][:emotion_ids]
 		params[:gimoji][:emotion_ids].each do |emotion_id|
-			@gimoji.emotions << Emotion.find_by_id(emotion_id)
-			@gimoji.save
+			@emotion = Emotion.find_by_id(emotion_id)
+			binding.pry	
+			if !@gimoji.emotions.include?(@emotion)
+				@gimoji.emotions << @emotion 
+				@gimoji.save
+			end 
 		end 
 	end
 	if params[:gimoji][:new_emotion]

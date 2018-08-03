@@ -15,7 +15,7 @@ has_many :emotions, through: :gimoji_emotions
   end
 
   def gift(user2)
-  	@user = User.find_by_username(user2)
+  	@user = User.find_by_fullname(user2)
   	self.user = @user
   	self.save
   end 

@@ -66,14 +66,13 @@ delete '/gimojis/:slug/delete' do
     end
     if @gimoji.user_id == session[:user_id]
     #binding.pry
-    @gimoji.delete
-    redirect to "/gimojis"
-else
-	redirect to "/login"
-end
+    	@gimoji.delete
+    	redirect to "/gimojis"
+	else
+		redirect to "/login"
+	Send
 end
 
 
 end
 	
-end

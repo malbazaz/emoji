@@ -28,7 +28,9 @@ class GimojisController < ApplicationController
 			#@gimoji.user_id = session[:user_id]
 			#@gimoji.save
 			if params[:gimoji][:new_emotion]
-				Emotion.create(name: params[:gimoji][:new_emotion])
+				@emotion = Emotion.create(name: params[:gimoji][:new_emotion])
+				@gimoji.emotion_id = @emotion.id 
+				@gimoji.save 
 			end
 			redirect to "/gimojis/#{@gimoji.slug}"
  		end

@@ -6,9 +6,9 @@
 	<li> Here are my emotions: <% @gimoji.emotions.each do |emotion| %> - <%= emotion.name %></li><% end %></ul>
 
 <h4> If you own this Gimoji and would like to Gift it. Select the recipient and Click below: </a>
+<form action="/gimojis/<%= @gimoji.slug%>/gift" method="post">
 	<% User.all.each do |user1| %>
 <input type="radio" value="<%=user1.fullname%>" name="gimoji[username]" id="user_<%=user1.id%>"><%=user1.fullname%><%end%>
-<form action="/gimojis/<%= @gimoji.slug%>/gift" method="post">
 <input id="hidden" type="hidden" name="_method" value="patch">
 <input type="submit" value="Gift Gimoji" name="Gift Gimoji" id="Gift Gimoji">
 </form>

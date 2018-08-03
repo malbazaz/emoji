@@ -35,7 +35,7 @@ class GimojisController < ApplicationController
 
 get '/gimojis/:slug' do
 	if !!session[:user_id]
-		@gimoji = Gimoji.find_by_id(params[:id])
+		@gimoji = Gimoji.find_by_slug(params[:slug])
 		erb :'gimojis/show'
 	else
 		redirect '/login'
@@ -44,7 +44,7 @@ end
 
 get '/gimojis/:slug/edit' do
 	if !!session[:user_id]
-		@gimoji = Gimoji.find_by_id(params[:id])
+		@gimoji = Gimoji.find_by_slug(params[:slug])
 		erb :'gimojis/edit'
 	else
 		redirect '/login'
@@ -55,7 +55,7 @@ patch '/gimojis/:slug' do
 	if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
 		redirect "/gimojis/#{params[:slug]}/edit"
 	end
-	@gimoji = Gimoji.find_by_id(params[:id])
+	@gimoji = Gimoji.find_by_slug(params[:slug])
 	@gimoji.name = params[:gimoji][:name]
 	@gimoji.save
 	erb :'gimojis/show'
@@ -63,7 +63,7 @@ end
 
 delete '/gimojis/:slug/delete' do
     #binding.pry
-    @gimoji = Gimoji.find_by_id(params[:id])
+    @gimoji = Gimoji.find_by_slug(params[:slug])
     if !session[:user_id]
     	redirect to "/login"
     end

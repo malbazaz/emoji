@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     	if params[:password] == ""
     		redirect "/signup"
     	end
-    	@user = User.create(:username => params[:username], :email => params[:email], :password => params[:password])
+    	@user = User.create(fullname: params["fullname"], username: params["username"], email: params["email"], password: params["password"])
     	if @user
     		session[:user_id] = @user.id
  			redirect "/gimojis"

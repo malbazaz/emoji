@@ -70,9 +70,7 @@ delete '/gimojis/:slug/delete' do
     	redirect to "/gimojis"
 	else
 		redirect to "/login"
-	Send
+	end
 end
 
-
-end
-	
+end	

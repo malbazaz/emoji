@@ -9,10 +9,12 @@
 <form action="/gimojis" method="get">
 <input type="submit" value="All My Gimojis" name="See Gimojis" id="See Gimojis">
 </form>
+
 <h4> To Edit your Gimoji. Click below. </h4>
 <form action="/gimojis/<%= @gimoji.slug %>/edit" method="get">
 <input type="submit" value="Edit" name="Edit Gimoji" id="Edit Gimoji">
 </form>
+
 <h4> To Delete your Gimoji. Click below. </h4>
 <form method="post" action="/gimojis/<%= @gimoji.slug %>/delete">
   <input id="hidden" type="hidden" name="_method" value="delete">

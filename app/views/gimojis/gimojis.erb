@@ -1,8 +1,12 @@
 <h2>Gimoji's Index Page</h2>
 <h3>Welcome <%= @user.fullname %></h3>
+<h4> Here is the Gimojis you own:</h4>
+<% @user.gimojis.each do |gimo| %>
+<a href="/gimojis/<%= gimo.slug %>"><%= gimo.name %></a><%end%>
 <h4>Here is the list of all the emoji's out there </h4>
 	<% Gimoji.all.each do |gimoji| %>
-    <p> The <%= gimoji.name %> is owned by <%= User.find_by_id(gimoji.user_id).username %>. To see the content, please <a href="/gimojis/<%= @gimoji.slug %>">click here</a>.</p><% end %>
+	<% binding.pry %>
+    <p> The <%= gimoji.name %> is owned by <%= User.find_by_id(gimoji.user_id).username %>. To see the content, please <a href="/gimojis/<%= gimoji.slug %>">click here</a>.</p><% end %>
     <p> To create a Gimoji. Please visit this link: <a href='/gimojis/new'>Create a Gimoji!!!</a></p>
     <form action="/logout"> <input type="submit" name="submit" value="Log Out" id="submit"></a></form>
 

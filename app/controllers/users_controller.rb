@@ -15,15 +15,16 @@ class UsersController < ApplicationController
         if params[:fullname] == ""
             redirect "/signup"
         end
-    	if params[:username] == ""
+    	if params[:username] == "" || User.find_by_username(params[:username])
     		redirect "/signup"
     	end
-    	if params[:email] == ""
+    	if params[:email] == "" || User.find_by_email(params[:email])
     		redirect "/signup"
     	end
     	if params[:password] == ""
     		redirect "/signup"
     	end
+        binding.pry
     	@user = User.create(fullname: params["fullname"], username: params["username"], email: params["email"], password: params["password"])
     	if @user
     		session[:user_id] = @user.id

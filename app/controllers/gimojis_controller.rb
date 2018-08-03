@@ -23,9 +23,9 @@ class GimojisController < ApplicationController
 		if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
 			redirect to '/gimojis/new'
 		else
-			@gimoji = Gimoji.create(name: params[:gimoji][:name], tag: params[:gimoji][:tag])
-			@gimoji.user_id = session[:user_id]
-			@gimoji.save
+			@gimoji = Gimoji.create(name: params[:gimoji][:name], tag: params[:gimoji][:tag], user_id: session[:user_id])
+			#@gimoji.user_id = session[:user_id]
+			#@gimoji.save
 			redirect to "/gimojis/#{@gimoji.slug}"
  		end
  	end

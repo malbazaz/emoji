@@ -13,7 +13,5 @@ class ApplicationController < Sinatra::Base
   erb :index
   end
 
-  enable :sessions
-  use Rack::Flash
 
 end

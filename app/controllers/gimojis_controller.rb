@@ -19,7 +19,6 @@ class GimojisController < ApplicationController
 		if !!session[:user_id]
 			erb :'gimojis/create'
 		else
-			flash[:message_login] = "Please login first."
 			redirect '/login'
 		end
 	end
@@ -43,6 +42,7 @@ class GimojisController < ApplicationController
 					@gimoji.save 
 				end
 			end
+			flash[:message] = "Successfully created Gimoji."
 			redirect to "/gimojis/#{@gimoji.slug}"
  		end
  	end

@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     end
 
     post "/login" do
+      
     	if !!session[:user_id]
     		redirect "/gimojis"
     	end

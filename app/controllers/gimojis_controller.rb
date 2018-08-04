@@ -26,6 +26,7 @@ class GimojisController < ApplicationController
 	post '/gimojis' do
 
 		if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
+			flash[:message] = "Error. You have not filled the form properly to create a Gimoji. Please do so."
 			redirect to '/gimojis/new'
 		else
 			@gimoji = Gimoji.create(name: params[:gimoji][:name], tag: params[:gimoji][:tag], user_id: session[:user_id])
@@ -82,6 +83,7 @@ end
 
 patch '/gimojis/:slug' do
 	if params[:gimoji][:name] == "" || params[:gimoji][:tag] == ""
+		flash[:message] = "Error. You have not filled the form properly to edit your Gimoji. Please do so by having a name and tag."
 		redirect "/gimojis/#{params[:slug]}/edit"
 	end
 	@gimoji = Gimoji.find_by_slug(params[:slug])

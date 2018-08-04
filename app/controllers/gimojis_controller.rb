@@ -15,6 +15,7 @@ class GimojisController < ApplicationController
 		if !!session[:user_id]
 			erb :'gimojis/create'
 		else
+			flash[:message_login] = "Please login first."
 			redirect '/login'
 		end
 	end

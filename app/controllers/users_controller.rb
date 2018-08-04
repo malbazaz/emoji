@@ -69,7 +69,8 @@ class UsersController < ApplicationController
     end
 
     get '/users/:slug' do
-   		@user = find_by_slug(params[:slug])
+   		@user = User.find_by_slug(params[:slug])
+        #binding.pry
    		if !!session[:user_id]
    		    erb :'users/show'
    		else

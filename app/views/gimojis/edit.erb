@@ -1,6 +1,6 @@
 <h2>Update your Gimoji</h2>
 <% if flash.has?(:message) %>
-<%= flash[:message] %>
+<%= flash[:message] %><br></br>
 <% end %>
 <form action="/gimojis/<%=@gimoji.slug%>" method="POST">
 	<input id="hidden" type="hidden" name="_method" value="patch">

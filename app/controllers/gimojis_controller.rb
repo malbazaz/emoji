@@ -1,5 +1,9 @@
-class GimojisController < ApplicationController
+	require 'sinatra/base'
+	require 'rack-flash'
 
+class GimojisController < ApplicationController
+	enable :sessions
+    use Rack::Flash
 	get '/gimojis' do
 
 		if !!session[:user_id]

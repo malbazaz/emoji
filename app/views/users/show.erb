@@ -4,3 +4,4 @@
 <p> These are the Gimoji that <%= @user.fullname %> owns :
 <% @user.gimojis.each do |gimo| %>
 <a href="/gimojis/<%= gimo.slug %>"> <%= gimo.name %> </a> - <%end%>
+<form action="/logout"> <input type="submit" name="submit" value="Log Out" id="submit"></a></form>

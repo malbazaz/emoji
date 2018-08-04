@@ -1,11 +1,11 @@
 <% if flash.has?(:message) %>
 <%= flash[:message] %>
 <% end %>
-<h2>Welcome to the <%= @gimoji.name %> gimoji page.</h2>
+<h2>Welcome to the <%= @gimoji.name %> Gimoji page.</h2>
 <ul> <h4> Profile: </h4>
 	<li> I'm called <%= @gimoji.name %> </li>
 	<li> My tagline is "<%= @gimoji.tag %>" </li>
-	<li> I'm owned by <%= @gimoji.user.username %> </li>
+	<li> I'm owned by <%= @gimoji.user.fullname %> aka: <a href='/users/<%=@gimoji.user.slug%>'> <%= @gimoji.user.username %> </a> </li>
 	<li> Here are my emotions: <% @gimoji.emotions.each do |emotion| %> - <%= emotion.name %></li><% end %></ul>
 
 <h4> If you own this Gimoji and would like to Gift it. Select the recipient and Click below: </a>
@@ -33,3 +33,4 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit"name="Delete Gimoji" value="Delete" id="Delete Gimoji">
 </form>
+<form action="/logout"> <input type="submit" name="submit" value="Log Out" id="submit"></a></form>

@@ -1,4 +1,4 @@
-<h3> Welcome, <%= User.find_by_id(session[:id]).fullname %>  </h3>
+<h3> Welcome, <%= @user.fullname %>  </h3>
 <p>You are on the profile of <li> <%=@user.fullname%></p>
 <p> <%= @user.fullname %>'s username is <%= @user.username %>.</p> 	
 <p> These are the Gimoji that <%= @user.fullname %> owns :

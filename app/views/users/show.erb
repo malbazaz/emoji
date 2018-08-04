@@ -3,5 +3,6 @@
 <p> <%= @user.fullname %>'s username is <%= @user.username %>.</p> 	
 <p> These are the Gimoji that <%= @user.fullname %> owns :
 <% @user.gimojis.each do |gimo| %>
-<a href="/gimojis/<%= gimo.slug %>"> <%= gimo.name %> </a> - <%end%>
+<a href="/gimojis/<%= gimo.slug %>"> <%= gimo.name %> </a> - <%end%></p>
+<br></br>
 <form action="/logout"> <input type="submit" name="submit" value="Log Out" id="submit"></a></form>

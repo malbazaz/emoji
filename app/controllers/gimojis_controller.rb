@@ -65,8 +65,10 @@ patch '/gimojis/:slug/gift' do
 	#binding.pry
 	if !!session[:user_id] && @gimoji.user_id == session[:user_id]
 		@gimoji.gift(params[:fullname])
+		flash[:message] = "Successfully gifted the Gimoji."
 		redirect to "/gimojis"
 	else 
+		flash[:message] = "You don't own the Gimoji. You can't gift it."
 		redirect to '/gimojis'
 	end 
 end 

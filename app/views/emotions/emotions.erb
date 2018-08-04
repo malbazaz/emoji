@@ -1,0 +1,4 @@
+<h2> Welcome, please find all the emotions that were created so far: </h2>
+<h4> <% Emotion.all.each do |emotion1| %>
+	 <%= emotion1.name %> </h4><% end %>
+<h5> Unfortunately, you can only create an emotion when creating a Gimoji. So, please create your gimoji <a href='/gimojis/new'>here</a>.</h5>

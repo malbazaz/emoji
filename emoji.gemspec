@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["malbazaz"]
   spec.email         = ["39787850+malbazaz@users.noreply.github.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{This app enables uers to create, edit, see and delete Gimojis. Furthermore, users can gift Gimojis to other users.}
+  spec.description   = %q{Gimojis are representations of Emojis, with a name, a motto and emotions.}
+  spec.homepage      = "https://github.com/malbazaz/emoji"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

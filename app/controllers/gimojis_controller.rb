@@ -107,6 +107,7 @@ patch '/gimojis/:slug' do
 		@gimoji.save
 	end
 	@gimoji.save
+	flash[:message] = "You've successfully updated your Gimoji. "
 	erb :'gimojis/show'
 end
 

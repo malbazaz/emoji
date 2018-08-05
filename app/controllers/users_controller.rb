@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
 	get "/signup" do
     	if   !!session[:user_id]
-	    	redirect '/gimojis'
+	    	flash[:message] = "You are already logged-in. You didn't need to register. If it's not logged in as you, please log out."
+            redirect '/gimojis'
 	    end
 	    erb :'users/signup'
 	end
